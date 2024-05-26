@@ -1,0 +1,12 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Thank You for Your Order";
+}
+
+<div class="container mt-5">
+    <div class="card p-5">
+        <h1 class="text-primary">Thank You for Your Order</h1>
+        <p>Your order is being processed, and you will receive confirmation as soon as possible.</p>
+        <a href="@Url.Action("OrderSummary", "Order")" class="btn btn-primary mt-3">Order Summary</a>
+    </div>
+</div>

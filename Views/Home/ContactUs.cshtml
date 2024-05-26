@@ -1,0 +1,88 @@
+﻿@{
+    ViewData["Title"] = "Contact Us";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Light gray background */
+            color: #333; /* Text color */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #dc3545; /* Red color for title */
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            background-color: #fff; /* White background for contact info */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        }
+
+            .contact-info p {
+                margin-bottom: 10px;
+            }
+
+                .contact-info p:last-child {
+                    margin-bottom: 0;
+                }
+
+            .contact-info h2 {
+                color: #007bff; /* Blue color for section heading */
+                margin-bottom: 10px;
+            }
+
+        .contact-button {
+            background-color: #dc3545; /* Red color for button */
+            color: #fff; /* White text color */
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .contact-button:hover {
+                background-color: #c82333; /* Darker red on hover */
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+        <p>We value your feedback, inquiries, and suggestions at KhumaloCraft Emporium. Our commitment to excellence extends beyond our products, and we strive to provide exceptional customer service.</p>
+
+        <div class="contact-info">
+            <h2>KHUMALO CRAFT</h2>
+            <p>Tel: <a href="tel:0673780958">0673780958</a> (Call or Whatsapp)</p>
+            <p>Email: <a href="mailto:khumalocraft30@gmail.com">khumalocraft30@gmail.com</a></p>
+            <p>Hours: Monday – Saturday 09h00 – 16h30</p>
+        </div>
+
+        <button class="contact-button">Send Message</button>
+    </div>
+</body>
+</html>

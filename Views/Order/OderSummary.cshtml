@@ -1,0 +1,29 @@
+﻿@model KCrafts.Models.Cart
+
+<h2>Order Summary</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CartItems)
+        {
+            <tr>
+                <td>@item.Product.Name</td>
+                <td>@item.Product.Price.ToString("C")</td>
+                <td>@item.Quantity</td>
+                <td>@(item.Product.Price * item.Quantity).ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <!-- Add form for entering transaction details here -->
+</div>

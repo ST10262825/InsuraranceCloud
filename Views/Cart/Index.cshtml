@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Cart";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="container">
+    @if (Model.CartItems != null && Model.CartItems.Count > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.CartItems)
+                {
+                    <tr>
+                        <td>
+                            <img src="@item.Product.ImageUrl" alt="@item.Product.Name" class="product-image">
+                            <span style="font-weight: bold; font-size: 1.1em; color: #0066cc;">@item.Product.Name</span>
+                        </td>
+                        <td>R @item.Product.Price</td>
+                        <td>@item.Product.Category</td>
+                        <td>
+                            <form method="post" asp-action="UpdateQuantity">
+                                <input type="hidden" name="productId" value="@item.Product.ProductId" />
+                                <input type="number" name="quantity" value="@item.Quantity" />
+                                <button type="submit">Update</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="post" asp-action="RemoveFromCart">
+                                <input type="hidden" name="productId" value="@item.Product.ProductId" />
+                                <button type="submit">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+                @{
+                    decimal totalAmount = 0;
+                    foreach (var item in Model.CartItems)
+                    {
+                        totalAmount += (decimal)(item.Product.Price * item.Quantity);
+                    }
+                }
+
+                <tr>
+                    <td colspan="4"><strong><span style="font-size: 1.5em; color: green;">Total Amount:</span></strong></td>
+                    <td><strong><span style="font-size: 1.5em; color: green;">R @totalAmount</span></strong></td>
+                </tr>
+            </tbody>
+        </table>
+       <div>
+    <a href="@Url.Action("Create", "Transactions")" class="btn btn-primary">Proceed to Checkout</a>
+</div>
+
+
+    }
+    else
+    {
+        <p>Your cart is empty.</p>
+    }
+</div>
